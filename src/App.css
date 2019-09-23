@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: monospace;
 }
 body {
   background-color: black;
@@ -53,6 +54,15 @@ body {
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -69,10 +79,11 @@ html {
   position: fixed;
   right:0;
   top: 40%;
-  z-index: 1;
+  z-index: 2;
   background-color: white;
   padding: 20px 20px 20px 30px;
   border-radius: 15px 0 0 15px;
+  font-size: 1.5rem;
 }
 
 .navbar > div, a {
@@ -80,10 +91,91 @@ html {
   line-height: 25px;
 }
 
-a:visited {
+.navbar > div, a:visited {
   color: black;
 }
 
-a:hover {
+.navbar > div, a:hover {
   color: darkorange;
+}
+
+.showModal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  animation: fadeIn 0.5s forwards;
+}
+.hideModal {
+  visibility: hidden;
+}
+
+.modalItem {
+  background-color: white;
+  height: 60%;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 10%;
+  color: black;
+  position:relative;
+  text-align: center;
+  overflow: scroll;
+}
+
+.close > h5 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+iframe {
+  margin-bottom: 10px;
+}
+
+#WynHero {
+  margin-top: 20px;
+}
+.JajuanX {
+  position: absolute;
+  right: 10%;
+  top:3%;
+  z-index: 4;
+  color: black;
+  font-family: monospace;
+  font-size: 2.5rem;
+}
+.contact {
+  position: absolute;
+  bottom: 5%;
+  z-index: 4;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.contact > button {
+  color: white;
+  width: 20%;
+  border-radius: 10px;
+  height: 40px;
+  font-family: monospace;
+  font-size: 25px;
+  border: 2px solid white;
+  background-color: transparent;
+  transition: all .3s;
+}
+
+.contact > button:hover {
+  background-color: white;
+  color: black;
+}
+
+button:nth-child(1) {
+  margin-right: 20px;
+}
+
+.contact > button:nth-child(2) {
+  background-color: white;
 }

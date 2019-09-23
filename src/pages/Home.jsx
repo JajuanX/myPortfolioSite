@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css'
 import { Waypoint } from 'react-waypoint'
-import {TweenMax, Linear} from 'gsap'
+import XtoClose from '../Xclose.png'
 
 const styles = {
   video : {
@@ -39,10 +39,10 @@ class Home extends React.Component{
   state = {
     slideIn: false,
     slideInRight: false,
+    moreDetails:false,
   }
 
   componentDidMount() {
-    TweenMax.set('#scaleThis', {transformOrigin: '50% 50%'});
 
   }
 
@@ -62,6 +62,14 @@ class Home extends React.Component{
     }
   }
 
+  moreDetails = () => {
+    if (this.state.moreDetails) {
+      this.setState({moreDetails: false})
+    } else {
+      this.setState({moreDetails: true})
+    }
+  }
+
 
 
 
@@ -70,6 +78,12 @@ class Home extends React.Component{
   return (
           <div id="home">
             <div style={styles.video}>
+              <div className="JajuanX">
+                The Jajuan X Portfolio Site
+              </div>
+              <div className="contact">
+                <button>Contact</button><button><a href="https://medium.com/@jajuanburton/why-i-became-a-full-stack-web-developer-rookie-season-5945d512c1df">My Story</a></button>
+              </div>
               <iframe style={{ position: 'relative', bottom: '130px', width: "100vw", height: '820px'}} title="intro" src="https://player.vimeo.com/video/304726861?autoplay=1&loop=1&autopause=0" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
             </div>
 {// Website Portfolio *****************************************************
@@ -83,7 +97,9 @@ class Home extends React.Component{
                 <h1>Web Projects</h1>
                 <div style={styles.projectContainer}>
                   <div style={styles.box}>
-                    <button  style={styles.button} >Details</button>
+                    <button onClick={this.moreDetails}  id="wynhero" style={styles.button}>
+                      Details
+                    </button>
                   </div>
                   <div style={styles.box}>
                     <button style={styles.button} >Details</button>
@@ -105,7 +121,7 @@ class Home extends React.Component{
                 <h1>Video Projects</h1>
                 <div style={styles.projectContainer}>
                   <div style={styles.box}>
-                    <button  style={styles.button} >Details</button>
+                    <button style={styles.button} >Details</button>
                   </div>
                   <div style={styles.box}>
                     <button style={styles.button} >Details</button>
@@ -120,7 +136,23 @@ class Home extends React.Component{
 }            <div id="photoPortfolio" className="photoPortfolio">
               <h1>PhotoGraphy</h1>
             </div>
-          </div>
+
+{            // details modal
+}          <div className={this.state.moreDetails ? 'showModal' : 'hideModal'}>
+              <div className="modalItem">
+                <h1 id="WynHero">WynHero</h1>
+                <div onClick={this.moreDetails} className="close">
+                  <h5>close</h5>
+                  <iframe src="https://player.vimeo.com/video/359654309" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+              </div>
+            <div>
+
+            </div>
+           </div>
+
+
+</div>
         )
   }
 
