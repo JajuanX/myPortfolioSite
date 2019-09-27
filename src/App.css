@@ -9,6 +9,10 @@ body {
   color: white;
   min-height: 100vh;
 }
+
+a {
+  color: black;
+}
 .slideIn {
   height: 100vh;
   font-size: 40px;
@@ -113,7 +117,7 @@ html {
 }
 
 .modalItem {
-  background-color: white;
+  background-color: darkorange;
   height: 60%;
   width: 60%;
   margin: 0 auto;
@@ -131,33 +135,35 @@ html {
   cursor: pointer;
 }
 iframe {
-  margin-bottom: 10px;
 }
 
 #WynHero {
   margin-top: 20px;
 }
 .JajuanX {
-  position: absolute;
-  right: 10%;
-  top:3%;
+  grid-column: 2/4;
   z-index: 4;
   color: black;
   font-family: monospace;
   font-size: 2.5rem;
+  height: 80%;
 }
 .contact {
-  position: absolute;
-  bottom: 5%;
+  display: grid;
+  place-items: end center;
+  grid-row: 2;
+  grid-column: 1/3;
   z-index: 4;
   margin: auto;
-  text-align: center;
   width: 100%;
+  grid-template-columns: 1fr 1fr;
+  height: 80%;
+
 }
 
 .contact > button {
   color: white;
-  width: 20%;
+  width: 60%;
   border-radius: 10px;
   height: 40px;
   font-family: monospace;
@@ -178,4 +184,103 @@ button:nth-child(1) {
 
 .contact > button:nth-child(2) {
   background-color: white;
+}
+.Skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.Box{
+  display: grid;
+  place-items: center;
+}
+.skillTitle{
+  grid-column: 1/3;
+}
+
+.Additional {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Additional > h1 {
+  grid-column: 1/3;
+}
+
+.Box > h1 {
+  font-size: 3rem;
+  color: #C4C3C5;
+}
+
+.myVideo {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.Header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  min-height: 100vh;
+  place-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+#jobTitle {
+  font-size: 1.3rem;
+}
+
+.projectContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  width: 100%;
+  overflow: auto;
+}
+.webProjectContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+}
+
+.VideoBox {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.VideoBox > iframe {
+  width: 100vw;
+  height: 85vh;
+}
+
+.scroll {
+  position: relative;
+  bottom: 0;
+
+}
+
+.websiteBox {
+  width: 100vw;
+  height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 100px;
+  place-items: center;
+}
+
+.websiteBox > img {
+  width: 80%;
+  height: 100%;
 }

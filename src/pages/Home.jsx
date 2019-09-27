@@ -1,21 +1,14 @@
 import React from 'react'
 import '../App.css'
 import { Waypoint } from 'react-waypoint'
-import XtoClose from '../Xclose.png'
+import WynHero from '../Wynhero.png'
+import axios from 'axios'
 
 const styles = {
   video : {
     height: '100vh',
     overflow: 'hidden',
     margin: '0'
-  },
-  projectContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-    gridGap: '10px',
-    margin: '100px auto',
-    width: '80%',
-    placeItems: 'center'
   },
   box: {
     display: 'grid',
@@ -40,6 +33,8 @@ class Home extends React.Component{
     slideIn: false,
     slideInRight: false,
     moreDetails:false,
+    name: "",
+    _replyto: "",
   }
 
   componentDidMount() {
@@ -47,19 +42,11 @@ class Home extends React.Component{
   }
 
   slideIn = (e) => {
-    if (this.state.slideIn) {
-      this.setState({slideIn: false})
-    } else {
-      this.setState({slideIn: true})
-    }
+    this.setState({slideIn: true})
   }
 
   slideInRight = (e) => {
-    if (this.state.slideInRight) {
-      this.setState({slideInRight: false})
-    } else {
-      this.setState({slideInRight: true})
-    }
+    this.setState({slideInRight: true})
   }
 
   moreDetails = () => {
@@ -70,6 +57,27 @@ class Home extends React.Component{
     }
   }
 
+  handleChange = (e) => {
+  this.setState({[e.target.name]: e.target.value})
+}
+handleForm = e => {
+    axios.post(
+      "https://formspree.io/jajuan.burton@live.com",
+      this.state,
+      {headers: {"Accept": "application/json"}}
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    e.preventDefault();
+  }
+
+
+
 
 
 
@@ -78,81 +86,144 @@ class Home extends React.Component{
   return (
           <div id="home">
             <div style={styles.video}>
-              <div className="JajuanX">
-                The Jajuan X Portfolio Site
+              <div className="Header">
+                <div className="JajuanX">
+                  The Jajuan X Portfolio Site <br></br>
+                  <span id="jobTitle">
+                    Full Stack Software Developer - Digital Content Creator
+                  </span>
+                </div>
+                <div className="contact">
+                  <button>Contact</button><button><a href="https://medium.com/@jajuanburton/why-i-became-a-full-stack-web-developer-rookie-season-5945d512c1df">My Story</a></button>
+                </div>
               </div>
-              <div className="contact">
-                <button>Contact</button><button><a href="https://medium.com/@jajuanburton/why-i-became-a-full-stack-web-developer-rookie-season-5945d512c1df">My Story</a></button>
-              </div>
-              <iframe style={{ position: 'relative', bottom: '130px', width: "100vw", height: '820px'}} title="intro" src="https://player.vimeo.com/video/304726861?autoplay=1&loop=1&autopause=0" frameBorder="0" allow="autoplay; fullscreen" allowFullScreen></iframe>
+          </div>
+            <iframe className="myVideo" title="Juan X Intro video" src="https://player.vimeo.com/video/304726861?autoplay=1&loop=1&autopause=0&muted=1 " frameBorder="0" allow="autoplay; fullscreen" allowFullScreen>
+            </iframe>
+          {// Skills *****************************************************
+          }
+          <div className="Skills" id="skillTitle">
+            <div className="skillTitle Box">
+              <h1>Skills</h1>
             </div>
+            <div className="Languages Box">
+              <h1>Languages</h1>
+              <h3>Html5 CSS3</h3>
+              <h3>JavaScript(es6)</h3>
+              <h3>Ruby</h3>
+            </div>
+            <div className="Libraries Box">
+              <h1>Libraries</h1>
+              <h3>Express</h3>
+              <h3>React</h3>
+              <h3>Node</h3>
+              <h3>Rails</h3>
+              <h3>Yarn</h3>
+            </div>
+            <div className="Platforms Box">
+              <h1>Platforms</h1>
+              <h3>MAC</h3>
+              <h3>AWS</h3>
+              <h3>Heroku</h3>
+              <h3>Github</h3>
+            </div>
+            <div className="Software Box">
+              <h1>Software</h1>
+              <h3>MongoDB</h3>
+              <h3>Atom</h3>
+              <h3>Postman</h3>
+              <h3>PostgresGL</h3>
+              <h3>Vs Code</h3>
+            </div>
+            <div className="Familiar Box">
+              <h1>Familiar</h1>
+              <h3>AWS</h3>
+              <h3>Sinatra</h3>
+              <h3>Firebase</h3>
+            </div>
+            <div className="Additional Box">
+              <h1>Additional Skills</h1>
+              <div>
+                <h3>PhotoShop</h3>
+                <h3>InDesign</h3>
+                <h3>After Effects</h3>
+                <h3>Adobe Illustrator</h3>
+              </div>
+              <div>
+                <h3>Graphics Design</h3>
+                <h3>Motion Design</h3>
+                <h3>Premiere Pro</h3>
+                <h3>SVG Creation</h3>
+              </div>
+            </div>
+          </div>
 {// Website Portfolio *****************************************************
-}            <div id="websitePortfolio" className="slideIn" >
+}           <div id="websitePortfolio" className="slideIn" >
               <Waypoint
                 onEnter={this.slideIn}
-                onLeave={this.slideIn}
                 bottomOffset='20%'
               />
               <div className={this.state.slideIn ? "showName": "hideName"}>
                 <h1>Web Projects</h1>
-                <div style={styles.projectContainer}>
-                  <div style={styles.box}>
+                <div className="webProjectContainer">
+                  <div className="websiteBox">
+                    <img src={WynHero} />
                     <button onClick={this.moreDetails}  id="wynhero" style={styles.button}>
                       Details
                     </button>
                   </div>
-                  <div style={styles.box}>
+                  <div>
                     <button style={styles.button} >Details</button>
                   </div>
-                  <div style={styles.box}>
+                  <div >
                     <button style={styles.button} >Details</button>
                   </div>
                 </div>
               </div>
             </div>
 {// Videography *****************************************************
-}            <div id="videoPortfolio" className="slideIn" >
+}           <div id="videoPortfolio" className="slideIn" >
               <Waypoint
                 onEnter={this.slideInRight}
-                onLeave={this.slideInRight}
                 bottomOffset='20%'
               />
               <div className={this.state.slideInRight ? "showVideos": "hideName"}>
                 <h1>Video Projects</h1>
-                <div style={styles.projectContainer}>
-                  <div style={styles.box}>
-                    <button style={styles.button} >Details</button>
+                <div className="projectContainer">
+                  <div className="VideoBox">
+                    <iframe src="https://player.vimeo.com/video/362861819" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                   </div>
-                  <div style={styles.box}>
-                    <button style={styles.button} >Details</button>
+                  <div className="VideoBox">
+                    <iframe src="https://player.vimeo.com/video/299934773"  frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+                    </iframe>
                   </div>
-                  <div style={styles.box}>
-                    <button style={styles.button} >Details</button>
+                  <div className="VideoBox">
+                    <iframe src="https://player.vimeo.com/video/289128192" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>
             </div>
 {// PhotoGraphy *****************************************************
-}            <div id="photoPortfolio" className="photoPortfolio">
+}           <div id="photoPortfolio" className="photoPortfolio">
               <h1>PhotoGraphy</h1>
             </div>
 
+
 {            // details modal
-}          <div className={this.state.moreDetails ? 'showModal' : 'hideModal'}>
-              <div className="modalItem">
-                <h1 id="WynHero">WynHero</h1>
-                <div onClick={this.moreDetails} className="close">
-                  <h5>close</h5>
-                  <iframe src="https://player.vimeo.com/video/359654309" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  }
+
+
+              <div className={this.state.moreDetails ? 'showModal' : 'hideModal'}>
+                <div className="modalItem">
+                  <h1 id="WynHero">WynHero</h1>
+                  <div onClick={this.moreDetails} className="close">
+                    <h5>close</h5>
+                    <iframe title="Super Hero Site video" src="https://player.vimeo.com/video/359654309" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                  </div>
                 </div>
               </div>
-            <div>
-
             </div>
-           </div>
 
-
-</div>
         )
   }
 
