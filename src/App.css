@@ -4,6 +4,7 @@
   padding: 0;
   font-family: monospace;
 }
+
 body {
   background-color: black;
   color: white;
@@ -13,6 +14,11 @@ body {
 a {
   color: black;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 .slideIn {
   height: 100vh;
   font-size: 40px;
@@ -67,27 +73,165 @@ a {
   }
 }
 
-html {
-  scroll-behavior: smooth;
+.Header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 90px 100px;
+  place-items: end;
+  width: 100vw;
+  min-height: 0;
+  height: 200px;
 }
 
-.websitePortfolio {
-  height: 100vh;
-}
-
-#scaleThis {
-  opacity: 0;
+.myVideo > iframe {
+  position: absolute;
+  width: 100vw;
+  height: 60vh;
+  margin: 0;
+  top: -75px;
 }
 
 .navBar {
-  position: fixed;
-  right:0;
-  top: 40%;
-  z-index: 2;
+  position: sticky;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5,1fr);
+  grip-gap: 40px;
+  top:0;
   background-color: white;
-  padding: 20px 20px 20px 30px;
-  border-radius: 15px 0 0 15px;
+  padding: 20px 10px 20px 10px;
+  border-radius: 0;
+  font-size: 1rem;
+  width: 100%;
+  z-index: 100;
+}
+
+.JajuanX {
+  z-index: 4;
+  color: black;
+  font-family: monospace;
+  font-size: .3rem;
+  height: 80%;
+  grid-column: 1/3;
+
+}
+
+.contact {
+  display: grid;
+  place-items:  end center;
+  grid-row: 3;
+  grid-column: 1/3;
+  z-index: 4;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact > button {
+  color: white;
+  width: 60%;
+  border-radius: 10px;
+  height: 40px;
+  font-family: monospace;
+  font-size: 1em;
+  border: 2px solid white;
+  background-color: transparent;
+  transition: all .3s;
+}
+
+.contact > button:hover {
+  background-color: white;
+  color: black;
+  cursor: crosshair;
+}
+
+.Skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr 1fr 1fr;
+  place-items: start center;
+  grid-gap: 10px;
+  width: 100%;
+  font-size: .5em;
+  margin-top: 10%;
+  height: 100%;
+}
+
+.Skills > div h1 {
   font-size: 1.5rem;
+}
+
+.Additional {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  font-size: .5em;
+  place-items: center;
+}
+.Additional > h1 {
+  grid-column: 1;
+}
+
+.skillTitle.Box {
+  display: grid;
+  place-items: center;
+  grid-row: 1;
+  grid-column: 1/3;
+}
+.webProjectContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.projectContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow-y: scroll;
+  width: 100%;
+  overflow: auto;
+}
+.websiteBox {
+  width: 100vw;
+  height: 40vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 100px;
+  place-items: center;
+}
+.VideoBox {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.VideoBox > iframe {
+  width: 100vw;
+  height: 40vh;
+}
+.titles {
+  font-size: 3rem;
+}
+.slideIn {
+  height: 100%;
+  margin-top: 40px;
+}
+.websiteBox {
+  display: grid;
+  width: 100vw;
+  height: 40vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 100px;
+  place-items: center;
+}
+
+.websiteBox > img {
+  width: 80%;
+  height: 100%;
 }
 
 .navbar > div, a {
@@ -103,184 +247,209 @@ html {
   color: darkorange;
 }
 
-.showModal {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  animation: fadeIn 0.5s forwards;
-}
-.hideModal {
-  visibility: hidden;
-}
+/* ************************************************* */
+@media only screen and (min-width: 600px){
+  .websitePortfolio {
+    height: 100vh;
+  }
 
-.modalItem {
-  background-color: darkorange;
-  height: 60%;
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 10%;
-  color: black;
-  position:relative;
-  text-align: center;
-  overflow: scroll;
-}
+  #scaleThis {
+    opacity: 0;
+  }
 
-.close > h5 {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-iframe {
-}
+  .navBar {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    right:0;
+    top: 40%;
+    z-index: 2;
+    background-color: white;
+    padding: 20px 20px 20px 30px;
+    border-radius: 15px 0 0 15px;
+    font-size: 1.5rem;
+    width: 200px;
+  }
 
-#WynHero {
-  margin-top: 20px;
-}
-.JajuanX {
-  grid-column: 2/4;
-  z-index: 4;
-  color: black;
-  font-family: monospace;
-  font-size: 2.5rem;
-  height: 80%;
-}
-.contact {
-  display: grid;
-  place-items: end center;
-  grid-row: 2;
-  grid-column: 1/3;
-  z-index: 4;
-  margin: auto;
-  width: 100%;
-  grid-template-columns: 1fr 1fr;
-  height: 80%;
+  .showModal {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    animation: fadeIn 0.5s forwards;
+  }
+  .hideModal {
+    visibility: hidden;
+  }
 
-}
+  .modalItem {
+    background-color: darkorange;
+    height: 60%;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 10%;
+    color: black;
+    position:relative;
+    text-align: center;
+    overflow: scroll;
+  }
 
-.contact > button {
-  color: white;
-  width: 60%;
-  border-radius: 10px;
-  height: 40px;
-  font-family: monospace;
-  font-size: 25px;
-  border: 2px solid white;
-  background-color: transparent;
-  transition: all .3s;
-}
+  .close > h5 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 
-.contact > button:hover {
-  background-color: white;
-  color: black;
-}
+  #WynHero {
+    margin-top: 20px;
+  }
+  .JajuanX {
+    grid-column: 2/4;
+    z-index: 4;
+    color: black;
+    font-family: monospace;
+    font-size: 2.5rem;
+    height: 80%;
+  }
+  .contact {
+    display: grid;
+    place-items: end center;
+    grid-row: 2;
+    grid-column: 1/3;
+    z-index: 4;
+    margin: auto;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    height: 80%;
 
-button:nth-child(1) {
-  margin-right: 20px;
-}
+  }
 
-.contact > button:nth-child(2) {
-  background-color: white;
-}
-.Skills {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  width: 80%;
-  margin: 0 auto;
-  height: 100vh;
-}
+  .contact > button {
+    color: white;
+    width: 60%;
+    border-radius: 10px;
+    height: 40px;
+    font-family: monospace;
+    font-size: 25px;
+    border: 2px solid white;
+    background-color: transparent;
+    transition: all .3s;
+  }
 
-.Box{
-  display: grid;
-  place-items: center;
-}
-.skillTitle{
-  grid-column: 1/3;
-}
+  .contact > button:hover {
+    background-color: white;
+    color: black;
+  }
 
-.Additional {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+  button:nth-child(1) {
+    margin-right: 20px;
+  }
 
-.Additional > h1 {
-  grid-column: 1/3;
-}
+  .contact > button:nth-child(2) {
+    background-color: white;
+  }
+  .Skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: start center;
+    grid-gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    height: 100vh;
+    font-size: 1.5rem;
+  }
+  .Skills > div h1 {
+    font-size: 3rem;
+  }
 
-.Box > h1 {
-  font-size: 3rem;
-  color: #C4C3C5;
-}
+  .Box{
+    display: grid;
+    place-items: center;
+  }
+  .skillTitle{
+    grid-column: 1/3;
+  }
 
-.myVideo {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-}
-.Header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  min-height: 100vh;
-  place-items: center;
-  width: 90%;
-  margin: auto;
-}
+  .Additional {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.5rem;
+  }
 
-#jobTitle {
-  font-size: 1.3rem;
-}
+  .Additional > h1 {
+    grid-column: 1/3;
 
-.projectContainer {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  overflow-y: scroll;
-  width: 100%;
-  overflow: auto;
-}
-.webProjectContainer {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  overflow-y: scroll;
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-}
+  }
 
-.VideoBox {
-  display: inline-block;
-  width: 100vw;
-  height: 100vh;
-}
+  .Box > h1 {
+    font-size: 3rem;
+    color: #C4C3C5;
+  }
 
-.VideoBox > iframe {
-  width: 100vw;
-  height: 85vh;
-}
+  .myVideo > iframe {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  .Header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    min-height: 100vh;
+    place-items: center;
+    width: 100%;
+    margin: auto;
+  }
 
-.scroll {
-  position: relative;
-  bottom: 0;
+  #jobTitle {
+    font-size: 1.3rem;
+  }
 
-}
+  .projectContainer {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow-y: scroll;
+    width: 100%;
+    overflow: auto;
+  }
+  .webProjectContainer {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+  }
+  .websiteBox {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 100px;
+    place-items: center;
+  }
 
-.websiteBox {
-  width: 100vw;
-  height: 85vh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 100px;
-  place-items: center;
-}
+  .VideoBox {
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+  }
 
-.websiteBox > img {
-  width: 80%;
-  height: 100%;
+  .VideoBox > iframe {
+    width: 100vw;
+    height: 85vh;
+  }
+
+  .scroll {
+    position: relative;
+    bottom: 0;
+
+  }
 }

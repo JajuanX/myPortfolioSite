@@ -85,7 +85,7 @@ handleForm = e => {
       console.log(this.state)
   return (
           <div id="home">
-            <div style={styles.video}>
+            <div>
               <div className="Header">
                 <div className="JajuanX">
                   The Jajuan X Portfolio Site <br></br>
@@ -94,15 +94,23 @@ handleForm = e => {
                   </span>
                 </div>
                 <div className="contact">
-                  <button>Contact</button><button><a href="https://medium.com/@jajuanburton/why-i-became-a-full-stack-web-developer-rookie-season-5945d512c1df">My Story</a></button>
+                  <button>
+                    Contact
+                  </button>
+                  <button>
+                    <a href="https://medium.com/@jajuanburton/why-i-became-a-full-stack-web-developer-rookie-season-5945d512c1df">My Story
+                  </a>
+                  </button>
                 </div>
               </div>
           </div>
-            <iframe className="myVideo" title="Juan X Intro video" src="https://player.vimeo.com/video/304726861?autoplay=1&loop=1&autopause=0&muted=1 " frameBorder="0" allow="autoplay; fullscreen" allowFullScreen>
+          <div className="myVideo">
+            <iframe  title="Juan X Intro video" src="https://player.vimeo.com/video/304726861?autoplay=1&loop=1&autopause=0&muted=1 " frameBorder="0" allow="autoplay; fullscreen" allowFullScreen>
             </iframe>
+          </div>
           {// Skills *****************************************************
           }
-          <div className="Skills" id="skillTitle">
+          <div className="Skills">
             <div className="skillTitle Box">
               <h1>Skills</h1>
             </div>
@@ -164,7 +172,7 @@ handleForm = e => {
                 bottomOffset='20%'
               />
               <div className={this.state.slideIn ? "showName": "hideName"}>
-                <h1>Web Projects</h1>
+                <h1 className="titles">Web Projects</h1>
                 <div className="webProjectContainer">
                   <div className="websiteBox">
                     <img src={WynHero} />
@@ -188,7 +196,7 @@ handleForm = e => {
                 bottomOffset='20%'
               />
               <div className={this.state.slideInRight ? "showVideos": "hideName"}>
-                <h1>Video Projects</h1>
+                <h1 className="titles">Video Projects</h1>
                 <div className="projectContainer">
                   <div className="VideoBox">
                     <iframe src="https://player.vimeo.com/video/362861819" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
@@ -211,17 +219,6 @@ handleForm = e => {
 
 {            // details modal
   }
-
-
-              <div className={this.state.moreDetails ? 'showModal' : 'hideModal'}>
-                <div className="modalItem">
-                  <h1 id="WynHero">WynHero</h1>
-                  <div onClick={this.moreDetails} className="close">
-                    <h5>close</h5>
-                    <iframe title="Super Hero Site video" src="https://player.vimeo.com/video/359654309" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                  </div>
-                </div>
-              </div>
             </div>
 
         )
